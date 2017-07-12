@@ -45,6 +45,17 @@
                     "condition": "user_is_logged_in"
                 }]
             }
+            , {
+                "key": "test-page-for-confluence-add-on",
+                "location": "system.header/left",
+                "name": {
+                    "value": "Test Page Value"
+                },
+                "url": "/test-page",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
         ]
     }
 }
