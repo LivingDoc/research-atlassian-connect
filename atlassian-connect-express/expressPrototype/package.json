@@ -1,0 +1,24 @@
+{
+  "name": "my-addon",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "atlassian-connect-express": "file:..\\modules\\atlassian-connect-express",
+    "body-parser": "^1.14.2",
+    "brace-expansion": "^1.1.8",
+    "compression": "^1.6.0",
+    "cookie-parser": "^1.4.0",
+    "errorhandler": "^1.4.2",
+    "express": "^4.13.3",
+    "express-hbs": "*",
+    "jsdom": "^11.1.0",
+    "json-stringify-safe": "^5.0.1",
+    "jugglingdb-sqlite3": "0.0.5",
+    "morgan": "^1.6.1",
+    "node-powershell": "^3.1.1",
+    "static-expiry": ">=0.0.5"
+  }
+}
