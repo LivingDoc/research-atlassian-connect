@@ -1,0 +1,50 @@
+{
+    "key": "example-add-on-using-atlassian-connect-express",
+    "name": "Atlassian Connect Express Add-on",
+    "description": "This is an example Confluence add-on using atlassian connect express. ",
+    "vendor": {
+        "name": "Nico Paul"
+    },
+    "baseUrl": "https://ab476a3c.ngrok.io",
+    "links": {
+        "self": "https://ab476a3c.ngrok.io/atlassian-connect.json",
+        "homepage": "https://ab476a3c.ngrok.io/atlassian-connect.json"
+    },
+    "authentication": {
+        "type": "jwt"
+    },
+    "lifecycle": {
+        "installed": "/installed"
+    },
+    "scopes": [
+        "READ"
+        , "WRITE"
+        , "DELETE"
+    ],
+    "modules": {
+        "generalPages": [
+            {
+                "key": "hello-world-page-jira",
+                "location": "system.top.navigation.bar",
+                "name": {
+                    "value": "Hello World"
+                },
+                "url": "/hello-world",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
+            , {
+                "key": "hello-world-page-confluence",
+                "location": "system.header/left",
+                "name": {
+                    "value": "Hello World"
+                },
+                "url": "/hello-world",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
+        ]
+    }
+}
