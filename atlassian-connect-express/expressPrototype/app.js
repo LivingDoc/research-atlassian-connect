@@ -1,6 +1,8 @@
 // This is the entry point for your add-on, creating and configuring
 // your add-on HTTP server
 
+var startScript = require('./scripts/nodemon-start-script');
+
 // [Express](http://expressjs.com/) is your friend -- it's the underlying
 // web framework that `atlassian-connect-express` uses
 var express = require('express');
