@@ -1,12 +1,29 @@
 {
   "key": "${addon.key}",
-  "baseUrl": "${addon.base-url}",
-  "name": "Atlassian Connect Spring Boot (Spring Boot)",
+  "name": "Atlassian Connect Spring Boot Add-on",
+  "baseUrl": "https://ee6f6de9.ngrok.io",
   "authentication": {
     "type": "jwt"
   },
   "lifecycle": {
     "installed": "/installed",
     "uninstalled": "/uninstalled"
+  },
+  "modules": {
+    "generalPages": [
+      {
+        "key": "hello-world-page-confluence",
+        "location": "system.header/left",
+        "name": {
+          "value": "Hello World"
+        },
+        "url": "/hello-world",
+        "conditions": [
+          {
+            "condition": "user_is_logged_in"
+          }
+        ]
+      }
+    ]
   }
 }
