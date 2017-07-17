@@ -47,16 +47,16 @@ module.exports = function (app, addon) {
     });
 
 
-    app.get('/macro/static/time-macro', addon. authenticate(), function(req, res) {
+    app.get('/macro/static/dateTime-macro', addon. authenticate(), function(req, res) {
       let currentDateTime = new Date()
       let date = currentDateTime.getDate() + "." + (currentDateTime.getMonth()+1) + "." + currentDateTime.getFullYear()
       let time = currentDateTime.getHours() + ":" + currentDateTime.getMinutes() + ":" + currentDateTime.getSeconds()
-      res.render('static-time-macro', {
+      res.render('static-dateTime-macro', {
         date: date
         , time: time
       })
     })
-    
+
     // load any additional files you have in routes and apply those to the app
     {
         var fs = require('fs');
