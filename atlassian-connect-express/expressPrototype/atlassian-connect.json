@@ -1,118 +1,111 @@
 {
-    "key": "example-add-on-using-atlassian-connect-express",
-    "name": "Atlassian Connect Express Add-on",
-    "description": "This is an example Confluence add-on using atlassian connect express. ",
-    "vendor": {
+    "key": "example-add-on-using-atlassian-connect-express"
+    , "name": "Atlassian Connect Express Add-on"
+    , "description": "This is an example Confluence add-on using atlassian connect express. "
+    , "vendor": {
         "name": "Nico Paul"
-    },
-    "baseUrl": "https://ab476a3c.ngrok.io",
-    "links": {
-        "self": "https://ab476a3c.ngrok.io/atlassian-connect.json",
-        "homepage": "https://ab476a3c.ngrok.io/atlassian-connect.json"
-    },
-    "authentication": {
+    }
+    , "baseUrl": "https://8f252ce4.ngrok.io"
+    , "authentication": {
         "type": "jwt"
-    },
-    "lifecycle": {
+    }
+    , "lifecycle": {
         "installed": "/installed"
-    },
-    "scopes": [
+    }
+    , "scopes": [
         "READ"
         , "WRITE"
         , "DELETE"
-    ],
-    "modules": {
+    ]
+    , "modules": {
         "generalPages": [
             {
-                "key": "hello-world-page-jira",
-                "location": "system.top.navigation.bar",
-                "name": {
-                    "value": "Hello World"
-                },
-                "url": "/hello-world",
-                "conditions": [{
+                "key": "living-doc-2-hello-world-confluence-general-pages"
+                , "location": "system.header/left"
+                , "name": {
+                    "value": "LD2: Express Hello World"
+                }
+                , "url": "/express/generalPage/hello-world"
+                , "conditions": [{
                     "condition": "user_is_logged_in"
                 }]
             }
             , {
-                "key": "hello-world-page-confluence",
-                "location": "system.header/left",
-                "name": {
-                    "value": "Hello World"
-                },
-                "url": "/hello-world",
-                "conditions": [{
-                    "condition": "user_is_logged_in"
-                }]
-            }
-            , {
-                "key": "test-page-for-confluence-add-on",
-                "location": "system.header/left",
-                "name": {
-                    "value": "Test Page Value"
-                },
-                "url": "/test-page",
-                "conditions": [{
+                "key": "living-doc-2-test-page-general-pages"
+                , "location": "system.header/left"
+                , "name": {
+                    "value": "LD2: Express Test Page"
+                }
+                , "url": "/express/generalPage/test-page"
+                , "conditions": [{
                     "condition": "user_is_logged_in"
                 }]
             }
         ]
+
+
         , "staticContentMacros": [
             {
-                "key": "hello-world-test-macro"
-                , "name": {
-                  "value": "Test: Hello World"
-                }
-                , "method": "post"
-                , "url": "/macro/static/hello-world-macro?pageTitle={page.title}&personName={greet}&thisWorld={world}"
-                , "parameters":[
-                  {
-                    "identifier": "world"
-                    , "name": {
-                        "value": "What is this World?"
+              "key": "living-doc-2-date-time-static-content-macro-express"
+              , "name": {
+                  "value": "LD2: Express Static DateTime Macro"
+              }
+              , "method": "post"
+              , "url": "/express/macro/static/date-time"
+              , "description": {
+                  "value": "Displays the time the page was last synchronized"
+              }
+            }
+
+
+            , {
+              "key": "living-doc-2-hello-world-static-content-macro-express"
+            , "name": {
+                "value": "LD2: Express Static Hello World Macro"
+              }
+            , "method": "post"
+            , "url": "/express/macro/static/hello-world?pageTitle={page.title}&personName={greet}&thisWorld={world}"
+            , "description": {
+                "value": "Express the feelings of the user about this world and greets a person the user like to greet. Also displays the current title of the page, this macro was inserted."
+              }
+            , "parameters":[
+                {
+                  "identifier": "world"
+                  , "name": {
+                      "value": "What is this World?"
                     }
-                    , "type": "enum"
-                    , "required": true
-                    , "defaultValue": "flat"
-                    , "values": [
+                  , "type": "enum"
+                  , "required": true
+                  , "values": [
                       "good"
                       , "evil"
                       , "flat"
                       , "round"
+                      , "lame"
+                      , "exciting"
                     ]
-                    , "description": {
-                        "value": "Fill in what you think about this world."
-                      }
-
-                  }
-                  , {
-                    "identifier": "greet"
-                    , "name": {
-                        "value": "Person I want to greet"
+                  , "description": {
+                      "value": "Fill in what you think about this world."
                     }
-                    , "type": "string"
-                    , "required": true
-                    , "defaultvalue": "nobody"
-                    , "description": {
-                        "value": "Fill in the name of the person you want to greet."
+                }
+              , {
+                  "identifier": "greet"
+                  , "name": {
+                      "value": "Person I want to greet"
                     }
-                  }
-                ]
-                ,"conditions": [{
-                    "condition": "user_is_logged_in"
-                }]
-            }
-            , {
-                "key": "date-time-macro",
-                "name": {
-                  "value": "Time Macro"
-                },
-                "method": "post",
-                "url": "/macro/static/time-macro",
-                "conditions": [{
-                    "condition": "user_is_logged_in"
-                }]
+                  , "type": "string"
+                  , "required": true
+                  , "description": {
+                      "value": "Fill in the name of the person you want to greet."
+                    }
+                }
+              ]
+            ,"conditions": [{
+                "condition": "user_is_logged_in"
+              }]
             }
         ]
+
+
     }
 }
