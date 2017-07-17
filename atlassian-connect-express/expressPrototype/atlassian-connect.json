@@ -102,6 +102,17 @@
                     "condition": "user_is_logged_in"
                 }]
             }
+            , {
+                "key": "date-time-macro",
+                "name": {
+                  "value": "Time Macro"
+                },
+                "method": "post",
+                "url": "/macro/static/time-macro",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
         ]
     }
 }
