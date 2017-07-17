@@ -57,5 +57,51 @@
                 }]
             }
         ]
+        , "staticContentMacros": [
+            {
+                "key": "hello-world-test-macro"
+                , "name": {
+                  "value": "Test: Hello World"
+                }
+                , "method": "post"
+                , "url": "/macro/static/hello-world-macro?pageTitle={page.title}&personName={greet}&thisWorld={world}"
+                , "parameters":[
+                  {
+                    "identifier": "world"
+                    , "name": {
+                        "value": "What is this World?"
+                    }
+                    , "type": "enum"
+                    , "required": true
+                    , "defaultValue": "flat"
+                    , "values": [
+                      "good"
+                      , "evil"
+                      , "flat"
+                      , "round"
+                    ]
+                    , "description": {
+                        "value": "Fill in what you think about this world."
+                      }
+
+                  }
+                  , {
+                    "identifier": "greet"
+                    , "name": {
+                        "value": "Person I want to greet"
+                    }
+                    , "type": "string"
+                    , "required": true
+                    , "defaultvalue": "nobody"
+                    , "description": {
+                        "value": "Fill in the name of the person you want to greet."
+                    }
+                  }
+                ]
+                ,"conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
+        ]
     }
 }

@@ -35,6 +35,17 @@ module.exports = function (app, addon) {
         });
     });
 
+    app.get('/macro/static/hello-world-macro', addon.authenticate(), function(req, res) {
+      let thisWorld = req.query.thisWorld
+      let personName = req.query.personName
+      let pageTitle = req.query.pageTitle
+      res.render('static-hello-world-macro', {
+        thisWorld: thisWorld
+        , personName: personName
+        , pageTitle: pageTitle
+      });
+    });
+
     // load any additional files you have in routes and apply those to the app
     {
         var fs = require('fs');
