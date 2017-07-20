@@ -27,7 +27,7 @@
                 "key": "living-doc-2-hello-world-jira-general-pages"
                 , "location": "system.top.navigation.bar"
                 , "name": {
-                    "value": "Hello World"
+                    "value": "Hello World Express"
                 }
                 , "url": "/hello-world"
                 , "conditions": [{
@@ -38,7 +38,7 @@
                 "key": "living-doc-2-hello-world-confluence-general-pages"
                 , "location": "system.header/left"
                 , "name": {
-                    "value": "Hello World"
+                    "value": "Hello World Express"
                 }
                 , "url": "/hello-world"
                 , "conditions": [{
@@ -49,7 +49,7 @@
                 "key": "living-doc-2-test-page-general-pages"
                 , "location": "system.header/left"
                 , "name": {
-                    "value": "Test Page"
+                    "value": "Test Page Express"
                 }
                 , "url": "/test-page"
                 , "conditions": [{
@@ -59,9 +59,9 @@
         ]
         , "staticContentMacros": [
             {
-                "key": "living-doc-2-hello-world-static-content-macros"
+                "key": "living-doc-2-hello-world-static-content-macros-express"
                 , "name": {
-                  "value": "LivingDoc2: Static Hello World Macro"
+                  "value": "LivingDoc2: Static Hello World Macro Express"
                 }
                 , "method": "post"
                 , "url": "/macro/static/hello-world-macro?pageTitle={page.title}&personName={greet}&thisWorld={world}"
@@ -76,7 +76,6 @@
                     }
                     , "type": "enum"
                     , "required": true
-                    , "defaultValue": "flat"
                     , "values": [
                       "good"
                       , "evil"
@@ -106,9 +105,9 @@
                 }]
             }
             , {
-                "key": "living-doc-2-date-time-static-content-macros"
+                "key": "living-doc-2-date-time-static-content-macros-express"
                 , "name": {
-                  "value": "LivingDoc2: Static DateTime Macro"
+                  "value": "LivingDoc2: Static DateTime Macro Express"
                 }
                 , "method": "post"
                 , "url": "/macro/static/dateTime-macro"
