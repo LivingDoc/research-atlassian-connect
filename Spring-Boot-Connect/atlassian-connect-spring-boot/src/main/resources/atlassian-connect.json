@@ -1,24 +1,24 @@
 {
-  "key": "${addon.key}",
-  "name": "Atlassian Connect Spring Boot Add-on",
-  "baseUrl": "https://ee6f6de9.ngrok.io",
-  "authentication": {
+  "key": "atlassian-connect-spring-boot"
+  , "name": "Atlassian Connect Spring Boot Add-on"
+  , "baseUrl": "https://aa316ef2.ngrok.io"
+  , "authentication": {
     "type": "jwt"
-  },
-  "lifecycle": {
-    "installed": "/installed",
-    "uninstalled": "/uninstalled"
-  },
-  "modules": {
+  }
+  , "lifecycle": {
+    "installed": "/installed"
+    , "uninstalled": "/uninstalled"
+  }
+  , "modules": {
     "generalPages": [
       {
-        "key": "hello-world-page-confluence",
-        "location": "system.header/left",
-        "name": {
-          "value": "Hello World"
-        },
-        "url": "/hello-world",
-        "conditions": [
+        "key": "hello-world-page-confluence"
+        , "location": "system.header/left"
+        , "name": {
+          "value": "Hello World Spring Boot"
+        }
+        , "url": "/helloWorld"
+        , "conditions": [
           {
             "condition": "user_is_logged_in"
           }
