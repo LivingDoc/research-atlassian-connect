@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: atlassianConnectResources}">
+    <meta charset="UTF-8">
+    <title>DateTimeMacro</title>
+</head>
+<body class="aui-page-hybrid">
+<section id="content" role="main">
+    <p th:text="'This world is ' + ${thisWorld}">This World is...</p>
+    <p th:text="'I want to greet ' + ${personName} + ' from my Page with the Pagetitle ' + ${pageTitle}">Greeet a person</p>
+</section>
+</body>
+</html>
