@@ -20,7 +20,7 @@
     , "modules": {
         "generalPages": [
             {
-                "key": "living-doc-2-hello-world-confluence-general-pages"
+                "key": "living-doc-2-hello-world-confluence-general-pages-express"
                 , "location": "system.header/left"
                 , "name": {
                     "value": "LD2: Express Hello World"
@@ -31,7 +31,7 @@
                 }]
             }
             , {
-                "key": "living-doc-2-test-page-general-pages"
+                "key": "living-doc-2-test-page-general-pages-express"
                 , "location": "system.header/left"
                 , "name": {
                     "value": "LD2: Express Test Page"
