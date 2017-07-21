@@ -1,7 +1,7 @@
 {
   "key": "atlassian-connect-spring-boot"
   , "name": "Atlassian Connect Spring Boot Add-on"
-  , "baseUrl": "https://aa316ef2.ngrok.io"
+  , "baseUrl": "https://9b377708.ngrok.io"
   , "authentication": {
     "type": "jwt"
   }
@@ -15,7 +15,7 @@
         "key": "hello-world-page-confluence"
         , "location": "system.header/left"
         , "name": {
-          "value": "Hello World Spring Boot"
+          "value": "Hello World Spring"
         }
         , "url": "/helloWorld"
         , "conditions": [
@@ -24,6 +24,22 @@
           }
         ]
       }
+    ]
+    , "staticContentMacros": [
+    {
+      "key": "living-doc-2-date-time-static-content-macro-spring"
+      , "name": {
+        "value": "LivingDoc2: Static DateTime Macro Spring"
+      }
+      , "method": "post"
+      , "url": "/macro/static/dateTime-macro"
+      , "description": {
+        "value": "Displays the time the page was last synchronized"
+      }
+      , "conditions": [{
+        "condition": "user_is_logged_in"
+      }]
+    }
     ]
   }
 }
