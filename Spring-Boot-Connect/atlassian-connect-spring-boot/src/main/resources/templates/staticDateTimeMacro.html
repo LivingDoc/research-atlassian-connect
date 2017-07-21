@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: atlassianConnectResources}">
+    <meta charset="UTF-8">
+    <title>DateTimeMacro</title>
+</head>
+<body class="aui-page-hybrid">
+    <section id="content" role="main">
+        <p th:text="'Todays date is: ' + ${localDate}">Todays date is: LOCAL_DATE</p>
+        <p th:text="'The current time is: ' + ${localTime}">Current Time</p>
+    </section>
+</body>
+</html>
