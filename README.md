@@ -1,48 +1,80 @@
-<h3>What are the prototypes capable of?</h3>
+### What are the prototypes capable of?
 
-<br>The Prototypes includes two GeneralPages and two Macros(at the moment just staticContentMacros).
-<br><br>
-<b>GeneralPages</b><br>
-There are two basic Pages which can be found in the main menu under the point "extension"
-<br><br>
-<b>StaticContentMacros</b>
-<br>There are two Macros which can be inserted in a Confluence Page
-<br><br>
-<i>Date-Time-Macro</i>
-: The Time-Macro displays the date and time of the moment the page was synced
-<br><br>
-<i>Hello-World-Test-Macro</i>
-: Displays a Text which includes a set of Parameter. 
-<br>You can change the value of the parameter with the edit-button which appears if you click on the macro in editing-mode 
-<br>The last parameter depents on the Title of the Current Page
+There are two identical prototypes. One was coded in Java with Spring Boot, the other was coded in JavaScript with Express.js.
+The two Prototypes includes two GeneralPages and two static content macros, as well as two dynamic content macros.
+
+##### GeneralPages
+There are two basic Pages which can be found in the main menu under the point "extension" 
+
+##### StaticContentMacros 
+There are two Macros which can be inserted in a Confluence Page 
+
+_date-time-macro_ : The _date-time-macro_ displays the date and time of the moment the page was synced 
+
+_hello-world-test-macro_ : Displays a Text which includes a set of Parameter. 
+You can change the value of the parameter with the edit-button which appears if you click on the macro in editing-mode 
+The last parameter depents on the Title of the Current Page
+
+##### DynamicContentmacros
+There are a total of two dynamic content macros
+
+_date-time-macro_ : The dynamic version of the static _date-time-macro_
+
+_print-image-macro_ : Shows a locally stored image on the confluence page it is included
+
+##### Getting started (Operating System: Windows 7)
 
 
-<br><h3>Getting started</h3> 
+You need to sign up and register your atlassian developer environment [here](https://www.atlassian.com/ondemand/signup/form?product=confluence.ondemand,jira-software.ondemand,jira-servicedesk.ondemand,jira-core.ondemand&developer=true).
 
-<br>First of all you need to 
-<a href="https://www.atlassian.com/ondemand/signup/form?product=confluence.ondemand,jira-software.ondemand,jira-servicedesk.ondemand,jira-core.ondemand&developer=true">sign up and register </a>
-your atlassian developer environment
+Clone the research-atlassian-connect prototypes:
+```sh
+git clone https://github.com/testIT-LivingDoc/research-atlassian-connect.git
+```
+or
+```sh
+git clone git@github.com:testIT-LivingDoc/research-atlassian-connect.git
+```
 
+Make sure you have installed [Node.js](https://nodejs.org/en/download/)
 
-<h3>What to do to use the Atlassian-Connect-Express Prototype</h3>
+Open Powershell and run:
 
-Operating System: Windows 7 
-<br><br>
-Install <a href="https://nodejs.org/en/download/">Node.js</a> for the operating system you are using
-<br><br>
-Open Powershell and head to the directory where you cloned this git repository 
-<br><br>
-Install ngrok with the command <code>npm install ngrok -g</code> 
-<br><br>
-Run <code>npm start</code> to start node server => there will be two powershell commands executed to create a tunnel with ngrok and to log the current status information for the tunnel
-<br><br>
-Copy the publicURL(of the console output) to your clipboard and insert it in the atlassian-connect.json file everywhere where you can find <code>{{publicUrl}}</code>
-<br><br>
-Then switch to your browser and open you atlassian cloud instance
-<br>
-&#8594; Settings
-&#8594; Manage Add-ons
-&#8594; Upload Add-on
-&#8594; Insert the publicURL you copied before
+```sh
+C:\Users\user> npm install ngrok -g
+C:\Users\user> ngrok http 8080
+```
 
-<br><h3>What to do to use the Atlassian-Connect-Spring-Boot Prototype</h3>
+ngrok is now tunneling your localhost on port 8080
+
+Copy the https-url of the powershell output to(something like `https://6088840e.ngrok.io`)
+
+Open both the `atlassian-connect.json` files and replace the {{publicUrl}} with the copied https-url
+
+Now you are ready to start !
+
+##### Spring Boot Protoype
+
+Open the ` research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/ ` project in a suitable IDE 
+
+Then run the `spring-boot:run` command (using IntelliJ you find it under: `Maven Projects` &rarr; `atlassian-connect-spring-boot` &rarr; `Plugins` &rarr; `spring-boot` &rarr; `spring-boot:run`)
+
+or run the following in your powershell:
+```sh 
+C:\YourPath\research-atlassian-connect\Spring-Boot-Connect\> mvn spring-boot:run
+```
+Now install the Add-on in your atlassian developer environment.
+
+##### Express Protoype
+Open Powershell and navigate to the root of the `atlassian-connect-express` project and run:
+```sh
+C:\YourPath\research-atlassian-connect\atlassian-connect-express> npm start
+```
+Now your node server is running and you cann install the add-on
+
+##### Installing an Add-on
+
+Open your Confluence Cloud environment
+
+Got to `Settings` &rarr; `Manage Add-ons` &rarr; `Upload Add-on`
+There you insert the url of the public ngrok tunnel you copied before.
