@@ -73,6 +73,13 @@ module.exports = function (app, addon) {
       })
     })
 
+    app.get('/express/macro/dynamic/image-to-base64', addon.authenticate(), function(req, res) {
+      let imageUrl = "http://images.techtimes.com/data/images/full/163412/falloutvaultboythumbsup.jpg"
+      res.render('dynamic-macro-image-to-base64', {
+        imageUrl: imageUrl
+      })
+    })
+
     // load any additional files you have in routes and apply those to the app
     {
         var fs = require('fs');

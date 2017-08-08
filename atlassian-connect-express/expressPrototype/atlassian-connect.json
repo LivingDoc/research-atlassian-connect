@@ -119,6 +119,25 @@
                 "value": "Displays the current time"
             }
           }
+
+
+          , {
+            "key": "living-doc-2-image-to-base64-dynamic-content-macro-express"
+            , "name": {
+                "value": "LD2: Express Dynamic Image to Base64 Macro "
+            }
+            , "method": "post"
+            , "url": "/express/macro/dynamic/image-to-base64"
+            , "description": {
+                "value": "Converts a jpeg to a base64 string and displays the image on the confluence page where the macro is used"
+            }
+            , "categories": [
+                "visuals"
+            ]
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+            }]
+          }
     ]
     }
 }

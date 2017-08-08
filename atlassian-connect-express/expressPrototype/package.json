@@ -12,7 +12,7 @@
     "compression": "^1.6.0",
     "cookie-parser": "^1.4.0",
     "errorhandler": "^1.4.2",
-    "express": "^4.13.3",
+    "express": "^4.15.3",
     "express-hbs": "*",
     "jsdom": "^11.1.0",
     "json-stringify-safe": "^5.0.1",
