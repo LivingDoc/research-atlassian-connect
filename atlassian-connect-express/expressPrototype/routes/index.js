@@ -52,9 +52,22 @@ module.exports = function (app, addon) {
 
     app.get('/express/macro/static/date-time', addon.authenticate(), function(req, res) {
       let currentDateTime = new Date()
-      let date = currentDateTime.getDate() + "." + (currentDateTime.getMonth()+1) + "." + currentDateTime.getFullYear()
-      let time = currentDateTime.getHours() + ":" + currentDateTime.getMinutes() + ":" + currentDateTime.getSeconds()
+      let date = currentDateTime.toDateString()
+      let time = currentDateTime.toLocaleTimeString()
       res.render('static-macro-date-time', {
+        date: date
+        , time: time
+      })
+    })
+
+
+    // DYNAMIC CONTENT MACROS
+
+    app.get('/express/macro/dynamic/date-time', addon.authenticate(), function(req, res) {
+      let currentDateTime = new Date()
+      let date = currentDateTime.toDateString()
+      let time = currentDateTime.toLocaleTimeString()
+      res.render('dynamic-macro-date-time', {
         date: date
         , time: time
       })

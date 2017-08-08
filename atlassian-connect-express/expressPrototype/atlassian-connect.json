@@ -107,5 +107,18 @@
         ]
 
 
+        , "dynamicContentMacros": [
+          {
+            "key": "living-doc-2-date-time-dynamic-content-macro-express"
+            , "name": {
+                "value": "LD2: Express Dynamic DateTime Macro"
+            }
+            , "method": "post"
+            , "url": "/express/macro/dynamic/date-time"
+            , "description": {
+                "value": "Displays the current time"
+            }
+          }
+    ]
     }
 }
