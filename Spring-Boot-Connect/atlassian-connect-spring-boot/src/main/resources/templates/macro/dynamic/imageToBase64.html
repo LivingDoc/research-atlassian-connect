@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: atlassianConnectResources}">
+    <meta charset="UTF-8">
+    <title>PrintImageMacro</title>
+</head>
+<body class="aui-page-hybrid">
+<section id="content" role="main">
+    <img th:src="'data:image/jpeg;base64,' + ${base64String}" alt="embedded image" style="width:304px;height:228px;"/>
+
+</section>
+</body>
+</html>
