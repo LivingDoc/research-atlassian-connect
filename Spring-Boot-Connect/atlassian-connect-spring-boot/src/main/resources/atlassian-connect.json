@@ -22,6 +22,19 @@
           {
             "condition": "user_is_logged_in"
           }
+
+
+          , {
+              "key": "living-doc-2-test-page-general-pages-spring"
+            , "location": "system.header/left"
+            , "name": {
+                "value": "LD2: Spring Test Page"
+              }
+            , "url": "/spring/generalPage/test-page"
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+              }]
+            }
         ]
       }
     ]
