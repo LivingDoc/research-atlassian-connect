@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: atlassianConnectResources}">
+    <meta charset="UTF-8">
+    <title>DateTimeMacro</title>
+</head>
+<body class="aui-page-hybrid">
+<section id="content" role="main">
+    <p id="localDate">The Local date</p>
+    <p id="localTime">Current Time</p>
+
+    <script>
+        setInterval(myTimer, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            document.getElementById('localDate').innerHTML = 'DATE: ' + d.toDateString();
+            document.getElementById("localTime").innerHTML = 'TIME: ' + d.toLocaleTimeString();
+        }
+    </script>
+
+</section>
+</body>
+</html>

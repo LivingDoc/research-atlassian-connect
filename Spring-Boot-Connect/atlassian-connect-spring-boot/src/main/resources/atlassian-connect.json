@@ -104,6 +104,17 @@
           }
     ]
 
+    , "dynamicContentMacros": [
+          {
+            "key": "living-doc-2-date-time-dynamic-content-macro-spring"
+            , "name": {
+                "value": "LD2: Spring Dynamic DateTime Macro"
+            }
+            , "method": "post"
+            , "url": "/spring/macro/dynamic/date-time"
+            , "description": {
+                "value": "Displays the current time"
+            }
           }
             }
             }
