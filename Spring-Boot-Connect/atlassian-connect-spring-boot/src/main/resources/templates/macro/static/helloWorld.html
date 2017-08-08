@@ -6,8 +6,12 @@
 </head>
 <body class="aui-page-hybrid">
 <section id="content" role="main">
-    <p th:text="'This world is ' + ${thisWorld}">This World is...</p>
-    <p th:text="'I want to greet ' + ${personName} + ' from my Page with the Pagetitle ' + ${pageTitle}">Greeet a person</p>
+
+    <p>
+        This world is <b th:text="${thisWorld}"> thisWorld</b> </br>
+        I want to greet <b th:text="${personName}">personName</b> from my Page with the Pagetitle <b th:text="${pageTitle}">pageTitle</b>
+    </p>
+
 </section>
 </body>
 </html>

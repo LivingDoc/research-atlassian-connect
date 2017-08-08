@@ -2,25 +2,30 @@
   "key": "atlassian-connect-spring-boot"
   , "name": "Atlassian Connect Spring Boot Add-on"
   , "baseUrl": "https://9b377708.ngrok.io"
+  , "vendor": {
+      "name": "Nico Paul"
+  }
   , "authentication": {
-    "type": "jwt"
+      "type": "jwt"
   }
   , "lifecycle": {
-    "installed": "/installed"
-    , "uninstalled": "/uninstalled"
+      "installed": "/installed"
+      , "uninstalled": "/uninstalled"
   }
   , "modules": {
+
     "generalPages": [
-      {
-        "key": "living-doc-2-hello-world-page-confluence-spring"
-        , "location": "system.header/left"
-        , "name": {
-          "value": "LivingDoc2: Hello World Spring"
-        }
-        , "url": "/spring/helloWorld"
-        , "conditions": [
           {
-            "condition": "user_is_logged_in"
+            "key": "living-doc-2-hello-world-page-confluence-spring"
+            , "location": "system.header/left"
+            , "name": {
+                "value": "LD2: Hello World Spring"
+            }
+            , "url": "/spring/generalPage/helloWorld"
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+              }
+            ]
           }
 
 
@@ -36,71 +41,73 @@
               }]
             }
         ]
-      }
-    ]
+
     , "staticContentMacros": [
-      {
-        "key": "living-doc-2-date-time-static-content-macro-spring"
-        , "name": {
-          "value": "LivingDoc2: Static DateTime Macro Spring"
-        }
-        , "method": "post"
-        , "url": "/spring/macro/static/dateTime-macro"
-        , "description": {
-          "value": "Displays the time the page was last synchronized"
-        }
-        , "conditions": [{
-          "condition": "user_is_logged_in"
-        }]
-      }
-
-      , {
-        "key": "living-doc-2-hello-world-static-content-macro-spring"
-      , "name": {
-          "value": "LivingDoc2: Static Hello World Macro Spring"
-        }
-      , "method": "post"
-      , "url": "/spring/macro/static/hello-world-macro?pageTitle={page.title}&personName={greet}&thisWorld={world}"
-      , "description": {
-          "value": "Express the feelings of the user about this world and greets a person the user like to greet. Also displays the current title of the page, this macro was inserted."
-        }
-      , "parameters":[
           {
-            "identifier": "world"
-          , "name": {
-            "value": "What is this World?"
-          }
-          , "type": "enum"
-          , "required": true
-          , "values": [
-            "good"
-          , "evil"
-          , "flat"
-          , "round"
-          , "lame"
-          , "exciting"
-          ]
-          , "description": {
-            "value": "Fill in what you think about this world."
+            "key": "living-doc-2-date-time-static-content-macro-spring"
+            , "name": {
+                "value": "LD2: Spring Static DateTime Macro"
+            }
+            , "method": "post"
+            , "url": "/spring/macro/static/date-time"
+            , "description": {
+                "value": "Displays the time the page was last synchronized"
+            }
           }
 
-          }
-        , {
-            "identifier": "greet"
+
+          , {
+            "key": "living-doc-2-hello-world-static-content-macro-spring"
           , "name": {
-              "value": "Person I want to greet"
+              "value": "LD2: Spring Static Hello World Macro"
             }
-          , "type": "string"
-          , "required": true
+          , "method": "post"
+          , "url": "/spring/macro/static/hello-world?pageTitle={page.title}&personName={greet}&thisWorld={world}"
           , "description": {
-              "value": "Fill in the name of the person you want to greet."
+              "value": "Express the feelings of the user about this world and greets a person the user like to greet. Also displays the current title of the page, this macro was inserted."
+            }
+          , "parameters":[
+              {
+                "identifier": "world"
+                , "name": {
+                    "value": "What is this World?"
+                  }
+                , "type": "enum"
+                , "required": true
+                , "values": [
+                    "good"
+                    , "evil"
+                    , "flat"
+                    , "round"
+                    , "lame"
+                    , "exciting"
+                  ]
+                , "description": {
+                    "value": "Fill in what you think about this world."
+                  }
+              }
+            , {
+                "identifier": "greet"
+                , "name": {
+                    "value": "Person I want to greet"
+                  }
+                , "type": "string"
+                , "required": true
+                , "description": {
+                    "value": "Fill in the name of the person you want to greet."
+                  }
+              }
+            ]
+          ,"conditions": [{
+              "condition": "user_is_logged_in"
+            }]
+          }
+    ]
+
+          }
+            }
             }
           }
-        ]
-      ,"conditions": [{
-          "condition": "user_is_logged_in"
-        }]
-      }
     ]
   }
 }

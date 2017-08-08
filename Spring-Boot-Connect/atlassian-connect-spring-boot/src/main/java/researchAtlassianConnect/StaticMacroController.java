@@ -12,22 +12,11 @@ import java.time.LocalTime;
 @Controller
 public class StaticMacroController {
 
-    @GetMapping("/spring/macro/static/dateTime-macro")
-    public String DateTimeMacro(Model model) {
+    // Macro that returns a html where the current date and time is shown
+    @GetMapping("/spring/macro/static/date-time")
+    public String dateTime(Model model) {
         addDateAndTime(model);
-        return "staticDateTimeMacro";
-    }
-
-    @GetMapping("/spring/macro/static/hello-world-macro")
-    public String helloWorldMacro( Model model
-        , @RequestParam String thisWorld
-        , @RequestParam String personName
-        , @RequestParam String pageTitle )
-    {
-        model.addAttribute("thisWorld", thisWorld);
-        model.addAttribute("personName", personName);
-        model.addAttribute("pageTitle", pageTitle);
-        return "staticHelloWorldMacro";
+        return "macro/static/dateTime";
     }
 
     private void addDateAndTime(Model model) {
@@ -37,6 +26,21 @@ public class StaticMacroController {
         model.addAttribute("localDate", localDate);
         model.addAttribute("localTime", localTime);
     }
+
+    // Macros with three paramaters 'thisWorld' and 'personName' are required params the user have to choose
+    @GetMapping("/spring/macro/static/hello-world")
+    public String helloWorld( Model model
+        , @RequestParam String thisWorld
+        , @RequestParam String personName
+        , @RequestParam String pageTitle )
+    {
+        model.addAttribute("thisWorld", thisWorld);
+        model.addAttribute("personName", personName);
+        model.addAttribute("pageTitle", pageTitle);
+
+        return "macro/static/helloWorld";
+    }
+
 }
 
 
