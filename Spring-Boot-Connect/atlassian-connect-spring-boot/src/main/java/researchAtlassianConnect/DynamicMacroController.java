@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Base64;
 
 @Controller
@@ -37,5 +40,21 @@ public class DynamicMacroController {
         }
 
         return "macro/dynamic/imageToBase64";
+    }
+
+    @GetMapping("/spring/macro/dynamic/display-svg")
+    public String displaySvg(Model model) {
+
+        try{
+            String path = "C:/Workspace/src/NT/research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/src/main/resources/kiwi.svg";
+            byte[] encodedFile = Files.readAllBytes(Paths.get(path));
+            String svg = new String(encodedFile, StandardCharsets.UTF_8);
+
+            model.addAttribute("svg", svg);
+        } catch (IOException e){
+
+        }
+
+        return "macro/dynamic/displaySvg";
     }
 }

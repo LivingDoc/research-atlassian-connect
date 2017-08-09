@@ -135,6 +135,24 @@
                 "condition": "user_is_logged_in"
             }]
           }
+
+          , {
+              "key": "living-doc-2-display-svg-dynamic-content-macro-spring"
+            , "name": {
+                "value": "LD2: Spring Dynamic Display SVG Macro "
+              }
+            , "method": "post"
+            , "url": "/spring/macro/dynamic/display-svg"
+            , "description": {
+                "value": "Displays a locally stored svg image"
+              }
+            , "categories": [
+                "visuals"
+              ]
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+              }]
+            }
     ]
   }
 }
