@@ -15,6 +15,9 @@ import java.util.Base64;
 @Controller
 public class DynamicMacroController {
 
+    final String JPEG_PATH = "C:/YOUR_PATH/research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/src/main/resources/falloutVaultBoyThumbsUp.jpg";
+    final String SVG_PATH = "C:/YOUR_PATH/research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/src/main/resources/kiwi.svg";
+
     // Macro that returns a html where the current date and time is shown
     @GetMapping("/spring/macro/dynamic/date-time")
     public String dateTime() {
@@ -26,7 +29,7 @@ public class DynamicMacroController {
     @GetMapping("/spring/macro/dynamic/image-to-base64")
     public String imageToBase64(Model model) {
 
-        File file = new File("C:/Workspace/src/NT/research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/src/main/resources/falloutVaultBoyThumbsUp.jpg");
+        File file = new File(JPEG_PATH);
 
         String base64String = null;
         try {
@@ -42,12 +45,12 @@ public class DynamicMacroController {
         return "macro/dynamic/imageToBase64";
     }
 
+    // Macro to display a locally stored svg image
     @GetMapping("/spring/macro/dynamic/display-svg")
     public String displaySvg(Model model) {
 
         try{
-            String path = "C:/Workspace/src/NT/research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/src/main/resources/kiwi.svg";
-            byte[] encodedFile = Files.readAllBytes(Paths.get(path));
+            byte[] encodedFile = Files.readAllBytes(Paths.get(SVG_PATH));
             String svg = new String(encodedFile, StandardCharsets.UTF_8);
 
             model.addAttribute("svg", svg);

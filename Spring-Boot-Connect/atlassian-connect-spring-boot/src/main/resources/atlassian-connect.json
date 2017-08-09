@@ -1,7 +1,7 @@
 {
   "key": "atlassian-connect-spring-boot"
   , "name": "Atlassian Connect Spring Boot Add-on"
-  , "baseUrl": "https://9b377708.ngrok.io"
+  , "baseUrl": "{{publicUrl}}"
   , "vendor": {
       "name": "Nico Paul"
   }
