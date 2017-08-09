@@ -20,7 +20,9 @@ There are a total of two dynamic content macros
 
 _date-time-macro_ : The dynamic version of the static _date-time-macro_
 
-_print-image-macro_ : Shows a locally stored image on the confluence page it is included
+_image-to-base64_ : Converts a locally stored .jpg to Base64 and displays the image on the confluence page where the macro is used
+
+_display-svg_     : Displays a locally stored svg image on the condluence page where the macro is used
 
 ##### Getting started (Operating System: Windows 7)
 
@@ -49,7 +51,10 @@ ngrok is now tunneling your localhost on port 8080
 
 Copy the https-url of the powershell output to(something like `https://6088840e.ngrok.io`)
 
-Open both the `atlassian-connect.json` files and replace the {{publicUrl}} with the copied https-url
+Open both the `atlassian-connect.json` files and replace the `{{publicUrl}}` with the copied https-url
+
+Last but not least you have to open the `DynamicMacroControlle.java` and change the final String `JPEG_PATH` and `SVG_PATH`.
+Therefore replace 'YOUR_PATH' with the path where you cloned this project to.
 
 Now you are ready to start !
 
