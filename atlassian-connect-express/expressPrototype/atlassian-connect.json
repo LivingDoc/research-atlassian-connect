@@ -5,7 +5,7 @@
     , "vendor": {
         "name": "Nico Paul"
     }
-    , "baseUrl": "https://8f252ce4.ngrok.io"
+    , "baseUrl": "{{localBaseUrl}}"
     , "authentication": {
         "type": "jwt"
     }
@@ -118,6 +118,9 @@
             , "description": {
                 "value": "Displays the current time"
             }
+            ,"conditions": [{
+                "condition": "user_is_logged_in"
+              }]
           }
 
 
