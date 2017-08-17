@@ -1,7 +1,7 @@
 module.exports = function (app, addon) {
 
-      const JPEG_PATH = "C:/YOUR_PATH/research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/src/main/resources/falloutVaultBoyThumbsUp.jpg"
-      const SVG_PATH = "C:/YOUR_PATH/research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/src/main/resources/kiwi.svg"
+      const JPG_PATH = "C:/YOUR_PATH/research-atlassian-connect/resources/falloutVaultBoyThumbsUp.jpg"
+      const SVG_PATH = "C:/YOUR_PATH/research-atlassian-connect/resources/kiwi.svg"
 
       // DateTime Macro: displays the current time
       app.get('/express/macro/dynamic/date-time', addon.authenticate(), function(req, res) {
@@ -24,8 +24,8 @@ module.exports = function (app, addon) {
 
 
 
-      // Image to Base64 Macro: converts a locally stored jpeg to base 64 and displays the content on the confluence page.
-      // file is saved at JPEG_PATH
+      // Image to Base64 Macro: converts a locally stored jpg to base 64 and displays the content on the confluence page.
+      // file is saved at JPG_PATH
       app.get('/express/macro/dynamic/image-to-base64', addon.authenticate(), function(req, res) {
         var fs = require("fs")
         function base64_encode(file) {
@@ -36,7 +36,7 @@ module.exports = function (app, addon) {
         }
         var preBase64 = 'data:image/jpeg;base64,'
         // concat preBase64 and base64 encoded string cause preBase64 is needed to use <img>-tag
-        var base64String = preBase64.concat(base64_encode(JPEG_PATH))
+        var base64String = preBase64.concat(base64_encode(JPG_PATH))
         res.render('dynamic-macro-image-to-base64', {
           base64String: base64String
         })

@@ -50,7 +50,7 @@
               , "name": {
                   "value": "LD2: Express Static DateTime Macro"
               }
-              , "method": "post"
+              , "method": "get"
               , "url": "/express/macro/static/date-time"
               , "description": {
                   "value": "Displays the time the page was last synchronized"
@@ -63,7 +63,7 @@
             , "name": {
                 "value": "LD2: Express Static Hello World Macro"
               }
-            , "method": "post"
+            , "method": "get"
             , "url": "/express/macro/static/hello-world?pageTitle={page.title}&personName={greet}&thisWorld={world}"
             , "description": {
                 "value": "Express the feelings of the user about this world and greets a person the user like to greet. Also displays the current title of the page, this macro was inserted."
@@ -113,7 +113,7 @@
             , "name": {
                 "value": "LD2: Express Dynamic DateTime Macro"
             }
-            , "method": "post"
+            , "method": "get"
             , "url": "/express/macro/dynamic/date-time"
             , "description": {
                 "value": "Displays the current time"
@@ -129,7 +129,7 @@
             , "name": {
                 "value": "LD2: Express Dynamic Image to Base64 Macro "
             }
-            , "method": "post"
+            , "method": "get"
             , "url": "/express/macro/dynamic/image-to-base64"
             , "description": {
                 "value": "Converts a jpeg to a base64 string and displays the image on the confluence page where the macro is used"
