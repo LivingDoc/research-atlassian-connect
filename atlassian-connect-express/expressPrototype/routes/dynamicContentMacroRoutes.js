@@ -32,5 +32,22 @@ module.exports = function (app, addon) {
       })
 
 
+      // Display SVG Macro: displays a locally stored svg image. file is saved at SVG_PATH
+      app.get('/express/macro/dynamic/display-svg', addon.authenticate(), function(req, res) {
+        var fs = require("fs")
+        var path = require("path")
+        var util = require("util")
+        var content
+        fs.readFile(path.join(SVG_PATH), 'utf8',function (err,data) {
+              if (err) {
+                  console.log(err)
+                  process.exit(1)
+              }
+              content = util.format(data)
 
+              res.render('dynamic-macro-display-svg', {
+                svg: content
+              })
+          })
+      })
 }

@@ -141,6 +141,27 @@
                 "condition": "user_is_logged_in"
             }]
           }
+
+          , {
+              "key": "living-doc-2-display-svg-dynamic-content-macro-express"
+            , "name": {
+                "value": "LD2: Express Dynamic Display SVG Macro "
+              }
+            , "method": "get"
+            , "url": "/express/macro/dynamic/display-svg"
+            , "description": {
+                "value": "Displays a locally stored svg image"
+              }
+            , "categories": [
+                "visuals"
+              ]
+            , "width":"700"
+            , "height":"500"
+            , "outputType": "block"
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+              }]
+            }
     ]
     }
 }
