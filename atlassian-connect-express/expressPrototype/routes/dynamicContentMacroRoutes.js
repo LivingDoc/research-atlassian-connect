@@ -27,27 +27,35 @@ module.exports = function (app, addon) {
       // Image to Base64 Macro: converts a locally stored jpeg to base 64 and displays the content on the confluence page.
       // file is saved at JPEG_PATH
       app.get('/express/macro/dynamic/image-to-base64', addon.authenticate(), function(req, res) {
-        let imageUrl = "http://images.techtimes.com/data/images/full/163412/falloutVaultBoyThumbsUp.jpg"
-        res.render('dynamic-macro-image-to-base64')
+        var fs = require("fs")
+        function base64_encode(file) {
+            // read binary data
+            var binaryData = fs.readFileSync(file)
+            // convert data to base64 encoded string
+            return new Buffer(binaryData).toString('base64')
+        }
+        var preBase64 = 'data:image/jpeg;base64,'
+        // concat preBase64 and base64 encoded string cause preBase64 is needed to use <img>-tag
+        var base64String = preBase64.concat(base64_encode(JPEG_PATH))
+        res.render('dynamic-macro-image-to-base64', {
+          base64String: base64String
+        })
+
       })
 
 
       // Display SVG Macro: displays a locally stored svg image. file is saved at SVG_PATH
       app.get('/express/macro/dynamic/display-svg', addon.authenticate(), function(req, res) {
         var fs = require("fs")
-        var path = require("path")
-        var util = require("util")
-        var content
-        fs.readFile(path.join(SVG_PATH), 'utf8',function (err,data) {
-              if (err) {
-                  console.log(err)
-                  process.exit(1)
-              }
-              content = util.format(data)
-
-              res.render('dynamic-macro-display-svg', {
-                svg: content
-              })
-          })
+        function utf8_encode(file) {
+            // read binary data
+            var binaryData = fs.readFileSync(file)
+            // convert data to utf8 encoded string
+            return new Buffer(binaryData).toString('utf8')
+        }
+        var fileContent = utf8_encode(SVG_PATH)
+        res.render('dynamic-macro-display-svg', {
+          svg: fileContent
+        })
       })
 }

@@ -4,7 +4,6 @@
     "development": {
         // This is the port your Express server will listen on
         "port": 8080,
-        "localBaseUrl": "https://ca79aeec.ngrok.io",
         //Use 'unauthorized.hbs' template for displaying an error page
         "errorTemplate": true,
         // alassian-connect-express currently integrates with JugglingDB for persistence
