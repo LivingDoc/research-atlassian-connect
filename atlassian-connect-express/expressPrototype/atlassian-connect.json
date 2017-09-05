@@ -118,9 +118,6 @@
             , "description": {
                 "value": "Displays the current time"
             }
-            ,"conditions": [{
-                "condition": "user_is_logged_in"
-              }]
           }
 
 
@@ -137,6 +134,8 @@
             , "categories": [
                 "visuals"
             ]
+            , "width":"325"
+            , "height":"275"
             , "conditions": [{
                 "condition": "user_is_logged_in"
             }]
@@ -156,7 +155,7 @@
                 "visuals"
               ]
             , "width":"700"
-            , "height":"500"
+            , "height":"560"
             , "outputType": "block"
             , "conditions": [{
                 "condition": "user_is_logged_in"
