@@ -5,7 +5,7 @@
     , "vendor": {
         "name": "Nico Paul"
     }
-    , "baseUrl": "{{localBaseUrl}}"
+    , "baseUrl": "{{publicUrl}}"
     , "authentication": {
         "type": "jwt"
     }
