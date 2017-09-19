@@ -15,8 +15,8 @@ import java.util.Base64;
 @Controller
 public class DynamicMacroController {
 
-    final String JPG_PATH = "C:/YOUR_PATH/research-atlassian-connect/resources/falloutVaultBoyThumbsUp.jpg";
-    final String SVG_PATH = "C:/YOUR_PATH/research-atlassian-connect/resources/kiwi.svg";
+    final String JPG_PATH = "../resources/falloutVaultBoyThumbsUp.jpg";
+    final String SVG_PATH = "../resources/kiwi.svg";
 
     // Macro that returns a html where the current date and time is shown
     @GetMapping("/spring/macro/dynamic/date-time")
