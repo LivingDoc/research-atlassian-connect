@@ -1,9 +1,5 @@
 package researchAtlassianConnect;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,18 +8,22 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Base64;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
 @Controller
 public class DynamicMacroController {
 
-    final String JPG_PATH = "../resources/falloutVaultBoyThumbsUp.jpg";
-    final String SVG_PATH = "../resources/kiwi.svg";
+    final String JPG_PATH = "../../resources/falloutVaultBoyThumbsUp.jpg";
+    final String SVG_PATH = "../../resources/kiwi.svg";
 
     // Macro that returns a html where the current date and time is shown
     @GetMapping("/spring/macro/dynamic/date-time")
     public String dateTime() {
         return "macro/dynamic/dateTime";
     }
-
 
     // Macro which converts a local stored image to base64 and displays it on the returned html file
     @GetMapping("/spring/macro/dynamic/image-to-base64")
@@ -34,7 +34,7 @@ public class DynamicMacroController {
         String base64String = null;
         try {
             FileInputStream fileInputStreamReader = new FileInputStream(file);
-            byte[] bytes = new byte[(int) file.length()];
+            byte[] bytes = new byte[( int ) file.length()];
             fileInputStreamReader.read(bytes);
             base64String = Base64.getEncoder().encodeToString(bytes);
             model.addAttribute("base64String", base64String);
@@ -49,12 +49,12 @@ public class DynamicMacroController {
     @GetMapping("/spring/macro/dynamic/display-svg")
     public String displaySvg(Model model) {
 
-        try{
+        try {
             byte[] encodedFile = Files.readAllBytes(Paths.get(SVG_PATH));
             String svg = new String(encodedFile, StandardCharsets.UTF_8);
 
             model.addAttribute("svg", svg);
-        } catch (IOException e){
+        } catch (IOException e) {
 
         }
 
