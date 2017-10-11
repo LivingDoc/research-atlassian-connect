@@ -1,7 +1,9 @@
 package researchAtlassianConnect;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class GeneralPagesController {
@@ -11,8 +13,9 @@ public class GeneralPagesController {
         return "generalPage/helloWorld";
     }
 
-    @GetMapping("/spring/generalPage/testPage")
-    public String testPage() {
+    @GetMapping("/generalPage/testPage")
+    public String testPage(Model model) {
+        model.addAttribute("title", "This is a title");
         return "generalPage/testPage";
     }
 }

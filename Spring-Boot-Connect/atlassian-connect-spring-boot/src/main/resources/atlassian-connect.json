@@ -35,7 +35,7 @@
             , "name": {
                 "value": "LD2: Spring Test Page"
               }
-            , "url": "/spring/generalPage/test-page"
+            , "url": "/generalPage/testPage"
             , "conditions": [{
                 "condition": "user_is_logged_in"
               }]
