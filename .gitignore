@@ -1,0 +1,14 @@
+addon-db.*
+target/
+\.idea/
+atlassian-connect-confluence-word-cloud
+store.db
+.DS_Store
+node_modules
+
+*.pem
+
+credentials.json
+*.iml
+npm-debug.log
+.vscode

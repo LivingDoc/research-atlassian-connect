@@ -1,0 +1,158 @@
+{
+  "key": "atlassian-connect-spring-boot"
+  , "name": "Atlassian Connect Spring Boot Add-on"
+  , "baseUrl": "{{publicUrl}}"
+  , "vendor": {
+      "name": "Nico Paul"
+  }
+  , "authentication": {
+      "type": "jwt"
+  }
+  , "lifecycle": {
+      "installed": "/installed"
+      , "uninstalled": "/uninstalled"
+  }
+  , "modules": {
+
+    "generalPages": [
+          {
+            "key": "living-doc-2-hello-world-page-confluence-spring"
+            , "location": "system.header/left"
+            , "name": {
+                "value": "LD2: Hello World Spring"
+            }
+            , "url": "/spring/generalPage/helloWorld"
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+              }
+            ]
+          }
+
+
+          , {
+              "key": "living-doc-2-test-page-general-pages-spring"
+            , "location": "system.header/left"
+            , "name": {
+                "value": "LD2: Spring Test Page"
+              }
+            , "url": "/generalPage/testPage"
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+              }]
+            }
+        ]
+
+    , "staticContentMacros": [
+          {
+            "key": "living-doc-2-date-time-static-content-macro-spring"
+            , "name": {
+                "value": "LD2: Spring Static DateTime Macro"
+            }
+            , "method": "post"
+            , "url": "/spring/macro/static/date-time"
+            , "description": {
+                "value": "Displays the time the page was last synchronized"
+            }
+          }
+
+
+          , {
+            "key": "living-doc-2-hello-world-static-content-macro-spring"
+          , "name": {
+              "value": "LD2: Spring Static Hello World Macro"
+            }
+          , "method": "post"
+          , "url": "/spring/macro/static/hello-world?pageTitle={page.title}&personName={greet}&thisWorld={world}"
+          , "description": {
+              "value": "Express the feelings of the user about this world and greets a person the user like to greet. Also displays the current title of the page, this macro was inserted."
+            }
+          , "parameters":[
+              {
+                "identifier": "world"
+                , "name": {
+                    "value": "What is this World?"
+                  }
+                , "type": "enum"
+                , "required": true
+                , "values": [
+                    "good"
+                    , "evil"
+                    , "flat"
+                    , "round"
+                    , "lame"
+                    , "exciting"
+                  ]
+                , "description": {
+                    "value": "Fill in what you think about this world."
+                  }
+              }
+            , {
+                "identifier": "greet"
+                , "name": {
+                    "value": "Person I want to greet"
+                  }
+                , "type": "string"
+                , "required": true
+                , "description": {
+                    "value": "Fill in the name of the person you want to greet."
+                  }
+              }
+            ]
+          ,"conditions": [{
+              "condition": "user_is_logged_in"
+            }]
+          }
+    ]
+
+    , "dynamicContentMacros": [
+          {
+            "key": "living-doc-2-date-time-dynamic-content-macro-spring"
+            , "name": {
+                "value": "LD2: Spring Dynamic DateTime Macro"
+            }
+            , "method": "post"
+            , "url": "/spring/macro/dynamic/date-time"
+            , "description": {
+                "value": "Displays the current time"
+            }
+          }
+
+
+          , {
+            "key": "living-doc-2-image-to-base64-dynamic-content-macro-spring"
+            , "name": {
+                "value": "LD2: Spring Dynamic Image to Base64 Macro "
+            }
+            , "method": "post"
+            , "url": "/spring/macro/dynamic/image-to-base64"
+            , "description": {
+                "value": "Converts a jpeg to a base64 string and displays the image on the confluence page where the macro is used"
+            }
+            , "categories": [
+                "visuals"
+            ]
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+            }]
+          }
+
+          , {
+              "key": "living-doc-2-display-svg-dynamic-content-macro-spring"
+            , "name": {
+                "value": "LD2: Spring Dynamic Display SVG Macro "
+              }
+            , "method": "post"
+            , "url": "/spring/macro/dynamic/display-svg"
+            , "description": {
+                "value": "Displays a locally stored svg image"
+              }
+            , "categories": [
+                "visuals"
+              ]
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+              }]
+            }
+    ]
+  }
+}

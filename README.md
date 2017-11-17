@@ -1,85 +1,112 @@
-### What are the prototypes capable of?
+# Atlassian Connect Research Project
+---
+This is a research project to see if Atlassian Connect is suited to be used for developing LivingDoc2.
+The project contains two prototypes, one coded in Java with Spring Boot and one coded in JavaScript with Express.js.
+The operating system used to code these prototypes was Windows 7 and Windows 10. 
+The following guide was just tested for Windows 7/10 systems. 
 
-There are two identical prototypes. One was coded in Java with Spring Boot, the other was coded in JavaScript with Express.js.
-The two Prototypes includes two GeneralPages and two static content macros, as well as two dynamic content macros.
+In the following is explained what the prototypes are containing, after that there's a guide about how to install and use the prototypes.
 
-##### GeneralPages
-There are two basic Pages which can be found in the main menu under the point "extension" 
+---
+#### What are the prototypes capable of?
+---
+The two Prototypes includes two GeneralPages, two Static Content Macros and three Dynamic Content Macros.
 
-##### StaticContentMacros 
-There are two Macros which can be inserted in a Confluence Page 
+**General Pages**
+There are two basic pages which can be found in the main menu under the point "extenseion". They don't contain specific content and just exist for testing purpose.
 
-_date-time-macro_ : The _date-time-macro_ displays the date and time of the moment the page was synced 
+**Static Contenct Macros**
+There are two macros which can be inserted in a Confluence page.
 
-_hello-world-test-macro_ : Displays a Text which includes a set of Parameter. 
-You can change the value of the parameter with the edit-button which appears if you click on the macro in editing-mode 
-The last parameter depents on the Title of the Current Page
+*date-time-macro* : The date-time-macro displays the date and time of the moment the page was synced.
 
-##### DynamicContentmacros
-There are a total of two dynamic content macros
+*hello-world-test-macro* : Displays a text which includes a set of parameter. You can change the value of the parameter with the edit-button which appears if you click on the macro in editing-mode The last parameter depents on the title of the current page. 
 
-_date-time-macro_ : The dynamic version of the static _date-time-macro_
+**Dynamic Content Macros**
+There are a total of three dynamic content macros.
 
-_image-to-base64_ : Converts a locally stored .jpg to Base64 and displays the image on the confluence page where the macro is used
+*date-time-macro* : The dynamic version of the static date-time-macro. It refreshs the displayed time every second.
 
-_display-svg_     : Displays a locally stored svg image on the condluence page where the macro is used
+*image-to-base64* : Converts a locally stored .jpg-file to a Base64-String and displays the image on the confluence page where the macro is used.
 
-##### Getting started (Operating System: Windows 7)
+*display-svg* : Loads the code of a locally stored svg image and displays that image on the confluence page, where the macro is inserted.
 
 
-You need to sign up and register your atlassian developer environment [here](https://www.atlassian.com/ondemand/signup/form?product=confluence.ondemand,jira-software.ondemand,jira-servicedesk.ondemand,jira-core.ondemand&developer=true).
 
-Clone the research-atlassian-connect prototypes:
-```sh
-git clone https://github.com/testIT-LivingDoc/research-atlassian-connect.git
-```
+
+---
+#### How to Install one of the Prototypes?
+---
+First to say, you can use just one of the Prototypes at the same time. That's because both, the Spring Boot and the Express.js version, will run at localhost `port:8080`.
+
+Operating System: Windows 7/10
+
+Let's get started:
+Sign up and register your own atlassian developer evironment [here](https://www.atlassian.com/ondemand/signup/form?product=confluence.ondemand,jira-software.ondemand,jira-servicedesk.ondemand,jira-core.ondemand&developer=true).
+
+Open your bash/shell and direct to the folder where you want to clone the prototypes to.
+Then clone the GitHub project:
+Clone with SSH: `git clone git@github.com:LivingDoc/research-atlassian-connect.git`
 or
-```sh
-git clone git@github.com:testIT-LivingDoc/research-atlassian-connect.git
+Clone with HTTPS: `git clone https://github.com/LivingDoc/research-atlassian-connect.git`
+
+Do you have Node.js installed? If not download and install it from [here](https://nodejs.org/en/download/).
+
+If Ubuntu is used jump to the quote. Otherwise do the following:
+Open a second bash/shell and run
 ```
-
-Make sure you have installed [Node.js](https://nodejs.org/en/download/)
-
-Open Powershell and run:
-
-```sh
-C:\Users\user> npm install ngrok -g
-C:\Users\user> ngrok http 8080
+C:\Users\"username"> npm install ngrok -g
+C:\Users\"username"> ngrok http 8080
 ```
+Copy the forwarding https-url of the powershell output to your clipboard (something like `https://6088840e.ngrok.io`)
 
-ngrok is now tunneling your localhost on port 8080
+> Download ngrok [here](https://ngrok.com/download) and follow the three steps
+Then run `./ngrok http 8080` in the terminal
+Copy the forwarding https-url of the powershell output to your clipboard (something like `https://6088840e.ngrok.io`)
 
-Copy the https-url of the powershell output to(something like `https://6088840e.ngrok.io`)
+**Spring Boot Prototype**
+Open the ` research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/ ` project in a suitable IDE like [IntelliJ](https://www.jetbrains.com/idea/download/#section=windows), or [Eclipse](http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/oxygen/R/eclipse-jee-oxygen-R-win32-x86_64.zip)
 
-Open both the `atlassian-connect.json` files and replace the `{{publicUrl}}` with the copied https-url
+Direct to `src` &rarr; `main` &rarr; `resources` &rarr; `atlassian-connect.json` and replace `{{publicUrl}}` with the copied https-url
 
-Last but not least you have to open the `DynamicMacroControlle.java` and change the final String `JPEG_PATH` and `SVG_PATH`.
-Therefore replace 'YOUR_PATH' with the path where you cloned this project to.
-
-Now you are ready to start !
-
-##### Spring Boot Protoype
-
-Open the ` research-atlassian-connect/Spring-Boot-Connect/atlassian-connect-spring-boot/ ` project in a suitable IDE 
-
-Then run the `spring-boot:run` command (using IntelliJ you find it under: `Maven Projects` &rarr; `atlassian-connect-spring-boot` &rarr; `Plugins` &rarr; `spring-boot` &rarr; `spring-boot:run`)
-
-or run the following in your powershell:
-```sh 
+For the next step you should make sure that you have installed and configured [Maven](https://maven.apache.org/).
+Either run
+```
 C:\YourPath\research-atlassian-connect\Spring-Boot-Connect\> mvn spring-boot:run
 ```
-Now install the Add-on in your atlassian developer environment.
+in your powershell/bash
+or 
+(if IntelliJ is used) go to `View` &rarr; `Tool Windows` &rarr; `Maven Projects` &rarr; `atlassian-connect-spring-boot` &rarr; `Plugins` &rarr; `spring-boot` 
+and click `spring-boot:run` 
 
-##### Express Protoype
-Open Powershell and navigate to the root of the `atlassian-connect-express` project and run:
-```sh
+Now install the Add-on in your atlassian developer environment. (scroll down to Installing an Add-on)
+
+
+**Express.js Prototype**
+Navigate to the root of the `atlassian-connect-express` project and open the atlassian-connect.json in an editor.
+Replace `{{publicUrl}}` with the copied https-url from the last step.
+
+Then open the shell at the current location and run the following command:
+```
+C:\YourPath\research-atlassian-connect\atlassian-connect-express> npm install
 C:\YourPath\research-atlassian-connect\atlassian-connect-express> npm start
 ```
-Now your node server is running and you cann install the add-on
+Now you can install the Add-on in your atlassian developer environment.(scroll down to Installing an Add-on)
 
-##### Installing an Add-on
+**Installing an Add-on**
 
-Open your Confluence Cloud environment
+Open your Confluence Cloud environment.
 
-Got to `Settings` &rarr; `Manage Add-ons` &rarr; `Upload Add-on`
-There you insert the url of the public ngrok tunnel you copied before.
+Go to `Settings` &rarr; ` Manage Add-ons` &rarr; `Settings`(at the bottom of the page) and enable development mode 
+
+Then click apply and click 'Upload Add-on' (at top of page)
+There you insert the copied https-url and click the Upload button.
+
+
+**Insert a macro in a Confluence page**
+
+Hit the `+`-Button on the left sidebar &rarr; choose a space &rarr; create an empty page
+
+Start editing the created page (pencil-icon on right top of the created page)
+
+Type `"{LD2"` &rarr; now you can choose one of the macros the prototype contains

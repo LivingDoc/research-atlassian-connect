@@ -1,0 +1,167 @@
+{
+    "key": "example-add-on-using-atlassian-connect-express"
+    , "name": "Atlassian Connect Express Add-on"
+    , "description": "This is an example Confluence add-on using atlassian connect express. "
+    , "vendor": {
+        "name": "Nico Paul"
+    }
+    , "baseUrl": "{{publicUrl}}"
+    , "authentication": {
+        "type": "jwt"
+    }
+    , "lifecycle": {
+        "installed": "/installed",
+        "uninstalled": "/uninstalled"
+    }
+    , "scopes": [
+        "READ"
+        , "WRITE"
+        , "DELETE"
+    ]
+    , "modules": {
+        "generalPages": [
+            {
+                "key": "living-doc-2-hello-world-confluence-general-pages-express"
+                , "location": "system.header/left"
+                , "name": {
+                    "value": "LD2: Express Hello World"
+                }
+                , "url": "/express/generalPage/hello-world"
+                , "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
+            , {
+                "key": "living-doc-2-test-page-general-pages-express"
+                , "location": "system.header/left"
+                , "name": {
+                    "value": "LD2: Express Test Page"
+                }
+                , "url": "/express/generalPage/test-page"
+                , "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
+        ]
+
+
+        , "staticContentMacros": [
+            {
+              "key": "living-doc-2-date-time-static-content-macro-express"
+              , "name": {
+                  "value": "LD2: Express Static DateTime Macro"
+              }
+              , "method": "get"
+              , "url": "/express/macro/static/date-time"
+              , "description": {
+                  "value": "Displays the time the page was last synchronized"
+              }
+            }
+
+
+            , {
+              "key": "living-doc-2-hello-world-static-content-macro-express"
+            , "name": {
+                "value": "LD2: Express Static Hello World Macro"
+              }
+            , "method": "get"
+            , "url": "/express/macro/static/hello-world?pageTitle={page.title}&personName={greet}&thisWorld={world}"
+            , "description": {
+                "value": "Express the feelings of the user about this world and greets a person the user like to greet. Also displays the current title of the page, this macro was inserted."
+              }
+            , "parameters":[
+                {
+                  "identifier": "world"
+                  , "name": {
+                      "value": "What is this World?"
+                    }
+                  , "type": "enum"
+                  , "required": true
+                  , "values": [
+                      "good"
+                      , "evil"
+                      , "flat"
+                      , "round"
+                      , "lame"
+                      , "exciting"
+                    ]
+                  , "description": {
+                      "value": "Fill in what you think about this world."
+                    }
+                }
+              , {
+                  "identifier": "greet"
+                  , "name": {
+                      "value": "Person I want to greet"
+                    }
+                  , "type": "string"
+                  , "required": true
+                  , "description": {
+                      "value": "Fill in the name of the person you want to greet."
+                    }
+                }
+              ]
+            ,"conditions": [{
+                "condition": "user_is_logged_in"
+              }]
+            }
+        ]
+
+
+        , "dynamicContentMacros": [
+          {
+            "key": "living-doc-2-date-time-dynamic-content-macro-express"
+            , "name": {
+                "value": "LD2: Express Dynamic DateTime Macro"
+            }
+            , "method": "get"
+            , "url": "/express/macro/dynamic/date-time"
+            , "description": {
+                "value": "Displays the current time"
+            }
+          }
+
+
+          , {
+            "key": "living-doc-2-image-to-base64-dynamic-content-macro-express"
+            , "name": {
+                "value": "LD2: Express Dynamic Image to Base64 Macro "
+            }
+            , "method": "get"
+            , "url": "/express/macro/dynamic/image-to-base64"
+            , "description": {
+                "value": "Converts a jpeg to a base64 string and displays the image on the confluence page where the macro is used"
+            }
+            , "categories": [
+                "visuals"
+            ]
+            , "width":"325"
+            , "height":"275"
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+            }]
+          }
+
+          , {
+              "key": "living-doc-2-display-svg-dynamic-content-macro-express"
+            , "name": {
+                "value": "LD2: Express Dynamic Display SVG Macro "
+              }
+            , "method": "get"
+            , "url": "/express/macro/dynamic/display-svg"
+            , "description": {
+                "value": "Displays a locally stored svg image"
+              }
+            , "categories": [
+                "visuals"
+              ]
+            , "width":"700"
+            , "height":"560"
+            , "outputType": "block"
+            , "conditions": [{
+                "condition": "user_is_logged_in"
+              }]
+            }
+    ]
+    }
+}
